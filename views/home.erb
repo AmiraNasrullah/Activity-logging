@@ -1,0 +1,26 @@
+<section id="add">
+	<form action="/" method="post">
+		
+		<input type="text" class="placeholder" name= "user_id" placeholder="User id&hellip;" />
+		<input type="text" class="placeholder" name= "user_type" placeholder="Parent or child&hellip;" />
+		<textarea name="type" size="10" placeholder="Activity type&hellip;"></textarea>
+		<textarea name="description" placeholder="Activity description&hellip;"></textarea>
+		<input type="submit" value="Insert Activity!">
+	</form>
+</section>
+
+<article>
+	<p>
+		<%=@json_format%>
+	</p>
+</article>
+<% @activities.each do |activity| %>
+	<article>
+		<p>
+			<%= activity.description %>
+			<span><a href="/activity/<%= activity.id %>">[edit]</a></span>
+		</p>
+		<p class="meta">Created: <%= activity.created_at %></p>
+		<p>json string : <%= { 'Activity' => Array(activity)}.to_json %></p>
+	</article>
+<% end %>
