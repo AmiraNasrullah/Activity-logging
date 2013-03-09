@@ -13,3 +13,4 @@ url => http://localhost:4567/
 
 url => http://localhost:4567/user/:user_id
 
+*browser used : chrome*
