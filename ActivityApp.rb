@@ -84,9 +84,12 @@ post '/activity/:id' do
 	redirect '/'
 end
 
+#
+#get number of activities of each type group by day ,month and year
+#
 get '/activities/:group_by' do
 
-get_number_of_activities(params[:group_by])
+	get_number_of_activities(params[:group_by])
 
 end
 
