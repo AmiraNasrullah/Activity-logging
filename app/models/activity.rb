@@ -20,6 +20,9 @@ class Activity
 	property :type, String, :required => true
 	property :description, Text
 	property :created_at, DateTime, :required => true
+	property :year, Integer
+	property :month, Integer
+	property :day , Integer
 
 
 	#
@@ -32,7 +35,11 @@ class Activity
       'parent_or_child'   => self.parent_or_child,
       'description'       => self.description,
       'type'    	      => self.type,
-      'created_at'        => self.created_at    
+      'created_at'        => self.created_at,
+      'year'              => self.year,
+      'day'               => self.day ,
+      'month'             => self.month    
+
     }.to_json(*a)
   end
 

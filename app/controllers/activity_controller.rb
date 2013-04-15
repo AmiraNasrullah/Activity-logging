@@ -29,14 +29,16 @@ end
 #
 def create
 	@activity = Activity.new
-
+	time = Time.now
 	#set attributes
 	@activity.description = params[:description]
 	@activity.user_id = params[:user_id]
 	@activity.parent_or_child = params[:user_type]
 	@activity.type = params[:type]
-	@activity.created_at = Time.now
-
+	@activity.created_at = time
+	@activity.day = time.day
+	@activity.month = time.month
+	@activity.year = time.year
 	#save activity
 	@activity.save
 end
