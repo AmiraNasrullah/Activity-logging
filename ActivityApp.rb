@@ -3,11 +3,14 @@ require 'dm-core'
 require 'dm-timestamps'  
 require 'dm-validations'  
 require 'dm-migrations'  
+require 'dm-aggregates'  
+require 'active_support/core_ext/numeric/time'
 require 'json'
 require 'rubygems' if RUBY_VERSION < "1.9"
 require 'sinatra/base'
 require 'rack-flash'
 require 'sinatra/redirect_with_flash'
+require 'active_support/core_ext/time/calculations'
 
 class ActivityApp < Sinatra::Base
 
@@ -79,6 +82,12 @@ post '/activity/:id' do
 	activity = Activity.get params[:id]
 	activity.destroy
 	redirect '/'
+end
+
+get '/activities/:group_by' do
+
+get_number_of_activities(params[:group_by])
+
 end
 
 end

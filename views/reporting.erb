@@ -1,0 +1,17 @@
+<%=@data%>
+	<article>
+		<p>
+				<%@data.length.times do |i|%>
+					<p>
+						<%=@group_by%>
+
+							<%=@data[i][0]%>
+						,Activity Type :
+							<%=@data[i][1]%>
+				        ,Number of activities of this type = 
+							<%=@data[i][2]%>
+					</p>
+				<%end%>
+		</p>
+
+	</article>

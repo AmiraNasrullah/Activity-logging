@@ -29,7 +29,7 @@ end
 #
 def create
 	@activity = Activity.new
-	time = Time.now
+	time = Date.new(2013,1,1)
 	#set attributes
 	@activity.description = params[:description]
 	@activity.user_id = params[:user_id]
@@ -96,4 +96,27 @@ def delete
 	@title = "Confirm deletion of note ##{params[:id]}"
 	#redirect to delete page
 	erb :delete
+end
+
+
+#
+#GET '/activities/:group_by' get activity with params[:id] 
+#and redirect to delete page
+#
+def get_number_of_activities(group_by)
+
+	@group_by = group_by
+	if(group_by == 'day')
+		@data =  Activity.aggregate(:day,:type,:all.count)
+	elsif (group_by == 'month')
+		@data =  Activity.aggregate(:month,:type,:all.count)
+	elsif (group_by == 'year')
+		@data =  Activity.aggregate(:year,:type,:all.count)
+	end
+	
+
+	@title = "Activities for each type"
+
+	erb :reporting
+
 end
