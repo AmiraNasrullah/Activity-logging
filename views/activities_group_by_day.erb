@@ -3,13 +3,16 @@
 		<p>
 				<%@data.length.times do |i|%>
 					<p>
-						<%=@group_by%>
-
+						Day 
 							<%=@data[i][0]%>
-						,Activity Type :
+						,Month :
 							<%=@data[i][1]%>
-				        ,Number of activities of this type = 
+				        ,year 
 							<%=@data[i][2]%>
+						,Activity type 
+							<%=@data[i][3]%>
+						,Number of Activities
+							<%=@data[i][4]%>
 					</p>
 				<%end%>
 		</p>

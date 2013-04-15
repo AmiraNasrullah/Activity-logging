@@ -29,7 +29,7 @@ end
 #
 def create
 	@activity = Activity.new
-	time = Date.new(2013,1,1)
+	time = Time.now
 	#set attributes
 	@activity.description = params[:description]
 	@activity.user_id = params[:user_id]
@@ -105,18 +105,17 @@ end
 #
 def get_number_of_activities(group_by)
 
-	@group_by = group_by
-	if(group_by == 'day')
-		@data =  Activity.aggregate(:day,:type,:all.count)
-	elsif (group_by == 'month')
-		@data =  Activity.aggregate(:month,:type,:all.count)
-	elsif (group_by == 'year')
-		@data =  Activity.aggregate(:year,:type,:all.count)
-	end
-	
-
 	@title = "Activities for each type"
 
-	erb :reporting
-
+	if(group_by == 'day')
+		@data =  Activity.aggregate(:day,:month,:year,:type,:all.count)
+		erb :activities_group_by_day
+	elsif (group_by == 'month')
+		@data =  Activity.aggregate(:month,:year,:type,:all.count)
+		erb :activities_group_by_month
+	elsif (group_by == 'year')
+		@data =  Activity.aggregate(:year,:type,:all.count)
+		erb :activities_group_by_year
+	end
+	
 end

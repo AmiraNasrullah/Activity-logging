@@ -1,0 +1,18 @@
+<%=@data%>
+	<article>
+		<p>
+				<%@data.length.times do |i|%>
+					<p>
+						Month :
+							<%=@data[i][0]%>
+				        ,year 
+							<%=@data[i][1]%>
+						,Activity type 
+							<%=@data[i][2]%>
+						,Number of Activities
+							<%=@data[i][3]%>
+					</p>
+				<%end%>
+		</p>
+
+	</article>
