@@ -10,6 +10,7 @@ require 'rubygems' if RUBY_VERSION < "1.9"
 require 'sinatra/base'
 require 'rack-flash'
 require 'sinatra/redirect_with_flash'
+require'dm-transactions'
 require 'active_support/core_ext/time/calculations'
 
 class ActivityApp < Sinatra::Base
@@ -19,14 +20,23 @@ enable :sessions
 use Rack::Flash, :sweep => true
 
 #set DataMapper database file
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/activities.db")
+
+DataMapper.setup(:default, {
+ :adapter => 'sqlite3',
+ :host => 'localhost',
+ :username => 'ck987' ,
+ :password => 'xxxxxx',
+ :database => 'ck987'})
 
 #require all models and controllers
 Dir["./app/models/*.rb"].each { |file| require file }
 Dir["./app/controllers/*.rb"].each { |file| require file }
 
 #auto upgrade DataMapper
-DataMapper.auto_upgrade!
+DataMapper.repository(:default).auto_upgrade!
+# Finish setup
+DataMapper.finalize
+
 
 #helpers
 helpers do
@@ -91,6 +101,22 @@ get '/activities/:group_by' do
 
 	get_number_of_activities(params[:group_by])
 
+end
+
+
+#
+#get top childs 
+#
+get '/topChildsOf/:group_by' do
+	get_top_childs(params[:group_by])
+end
+
+
+#
+#get top parents 
+#
+get '/topParentsOf/:group_by' do
+	get_top_parents(params[:group_by])
 end
 
 end

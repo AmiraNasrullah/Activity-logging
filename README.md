@@ -1,4 +1,7 @@
 
+*-------------------------------ACTIVITY LOGGING------------------------------*
+
+
 This example code has a simple API for creating, updating and deleting 'Activities'.
 To run app : 
 
@@ -43,5 +46,28 @@ url => http://localhost:4567/user/:user_id
 example :
 
 url => http://localhost:4567/user/5
+
+
+*---------------------------------SECOND TASK------------------------------------*
+
+*Statistics reporting
+	get how many activities of each type group by day => 'http://localhost:4567/activities/day'
+	get how many activities of each type group by month => 'http://localhost:4567/activities/month'
+	get how many activities of each type group by year => 'http://localhost:4567/activities/year'
+
+
+*top parents :-
+
+	get top parents of day => 'http://localhost:4567/topParentsOf/day'
+	get top parents of year => 'http://localhost:4567/topParentsOf/year'
+	get top parents of month => 'http://localhost:4567/topParentsOf/month'
+
+
+*top Childs :-
+
+	get top parents of day => 'http://localhost:4567/topChildsOf/day'
+	get top parents of year => 'http://localhost:4567/topChildsOf/year'
+	get top parents of month => 'http://localhost:4567/topChildsOf/month'
+
 
 *browser used : chrome*

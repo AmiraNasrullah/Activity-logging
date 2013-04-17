@@ -1,16 +1,16 @@
-<%=@data%>
-	<article>
+<article>
 		<p>
 				<%@data.length.times do |i|%>
 					<p>
-				        year 
-							<%=@data[i][0]%>
-						,Activity type 
-							<%=@data[i][1]%>
-						,Number of Activities
-							<%=@data[i][2]%>
+						Activity Type :: 
+							<%=@data[i].type%>
+						,Number of Activities ::
+							<%=@data[i].cnt%>
+						, year ::
+							<%=@data[i].year%>
 					</p>
 				<%end%>
 		</p>
 
-	</article>
+</article>
+

@@ -1,0 +1,19 @@
+<%=@data%>
+	<article>
+		<p>
+				<%@data.length.times do |i|%>
+					<p>
+						Count 
+							<%=@data[i].num_activities%>
+						,year :
+							<%=@data[i].year%>
+						,month :
+							<%=@data[i].month%>
+				        ,user id 
+							<%=@data[i].user_id%>
+					
+					</p>
+				<%end%>
+		</p>
+
+	</article>

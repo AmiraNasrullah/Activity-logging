@@ -19,11 +19,8 @@ class Activity
 	property :parent_or_child, String, :required => true
 	property :type, String, :required => true
 	property :description, Text
-	property :created_at, DateTime, :required => true
-	property :year, Integer
-	property :month, Integer
-	property :day , Integer
-
+	property :created_at, Date, :required => true
+	property :created_at_time, DateTime, :required => true
 
 	#
 	#convert Activity to json format
@@ -35,11 +32,8 @@ class Activity
       'parent_or_child'   => self.parent_or_child,
       'description'       => self.description,
       'type'    	      => self.type,
-      'created_at'        => self.created_at,
-      'year'              => self.year,
-      'day'               => self.day ,
-      'month'             => self.month    
-
+      'created_at'        => self.created_at, 
+      'created_at_time'   =>created_at_time,
     }.to_json(*a)
   end
 
