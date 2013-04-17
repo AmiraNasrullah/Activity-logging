@@ -52,9 +52,10 @@ url => http://localhost:4567/user/5
 
 *Statistics reporting :-
 
-	get how many activities of each type group by day => 'http://localhost:4567/activities/day'
-	get how many activities of each type group by month => 'http://localhost:4567/activities/month'
-	get how many activities of each type group by year => 'http://localhost:4567/activities/year'
+	get how many activities of each type 
+			group by day => 'http://localhost:4567/activities/day'
+			group by month => 'http://localhost:4567/activities/month'
+			group by year => 'http://localhost:4567/activities/year'
 
 
 *top parents :-
