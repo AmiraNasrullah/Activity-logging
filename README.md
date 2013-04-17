@@ -52,7 +52,7 @@ url => http://localhost:4567/user/5
 
 *Statistics reporting :-
 
-	get how many activities of each type 
+	*get how many activities of each type 
 			group by day => 'http://localhost:4567/activities/day'
 			group by month => 'http://localhost:4567/activities/month'
 			group by year => 'http://localhost:4567/activities/year'
